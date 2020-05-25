@@ -1,0 +1,13 @@
+{% extends 'blogapp/base.html' %}
+{% block navblock %}
+{% load crispy_forms_tags %}
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
+<h1>Do you want to delete blog?</h1>
+<button type="button" name="delete"></button>
+<button type="button" name="cancel"></button>
+{% endblock %}

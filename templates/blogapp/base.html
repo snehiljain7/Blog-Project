@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand/logo -->
+  <a class="navbar-brand" href="#">
+    <h1>BLOG</h1>
+  </a>
+  <ul class="navbar-nav mr-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="/">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/blog_form">Post Blog</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/blog_list">View all blogs</a>
+  </li>
+</ul>
+  <!-- Links -->
+  <ul class="navbar-nav ml-auto">
+{% if request.user.is_authenticated is True %}
+    <li class="nav-item">
+      <a class="nav-link active" href="#">Welcome {{request.user}}</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/accounts/logout">Logout</a>
+    </li>
+{% else%}
+    <li class="nav-item">
+      <a class="nav-link" href="/signup"><img src = "{%static "images/user.png" %}" alt="logo" width = 20px
+        height = 20px > Sign Up</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/accounts/login"><img src = "{%static "images/login.png" %}" alt="logo" width = 20px
+        height = 20px > Login</a>
+    </li>
+{%endif%}
+  </ul>
+</nav>
+<div class="container">
+
+
+{% block navblock %}
+<!-- Page specific code -->
+  {%endblock%}

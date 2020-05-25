@@ -1,0 +1,51 @@
+{% extends 'blogapp/base.html' %}
+{% block navblock %}
+{% load crispy_forms_tags %}
+
+
+<script src="https://use.fontawesome.com/0a087d3bc2.js"></script>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
+<center><h1> Blogs </h1></center>
+  <div class="container">
+    {% if blog_list %}
+    <table class="table table-striped">
+
+        <tr>
+          <th>TITLE</th>
+          <th>IMAGE</th>
+          <th>AUTHOR</th>
+          <th> REMOVE </th>
+          <th> UPDATE </th>
+        </tr>
+
+        {% for data in blog_list %}
+
+
+
+      <tr>
+        <td>{{data.title}}</td>
+        <td><a href="/blog_detail/{{data.id}}"><img src="{{data.image.url}}" width = 200px height = 200px>
+      </a></td>
+        <td>{{data.author}}</td>
+
+      <td>
+      <!--{% ifequal request.user.username data.author %}-->
+      <a href="/delete_blog/{{data.id}}" class = "fa fa-times"></a></td>
+      <!--{% endifequal %}</td>-->
+      <td>
+        <!--{% ifequal request.user.username data.author %}-->
+        <a href="/update_blog/{{data.id}}">Update</a>
+        <!--{% endifequal %}-->
+      </td>
+      </tr>
+
+      {%endfor%}
+  </table>
+  </div>
+      {%else%}
+      "NO DATA FOUND"
+      {%endif%}
+{%endblock%}
